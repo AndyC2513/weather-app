@@ -3,10 +3,15 @@ import './WeatherApp.css'
 
 import search_icon from '../Assets/search.png';
 import clear_icon from '../Assets/clear.png';
+import clearn_icon from '../Assets/clearn.png';
 import cloud_icon from '../Assets/cloud.png';
+import cloudn_icon from '../Assets/cloudn.png';
 import drizzle_icon from '../Assets/drizzle.png';
+import drizzlen_icon from '../Assets/drizzlen.png';
 import rain_icon from '../Assets/rain.png';
+import thunderstorm_icon from '../Assets/thunderstorm.png';
 import snow_icon from '../Assets/snow.png';
+import mist_icon from '../Assets/mist.png';
 import wind_icon from '../Assets/wind.png';
 import humidity_icon from '../Assets/humidity.png';
 
@@ -45,20 +50,28 @@ export const WeatherApp = () => {
             temperature[0].innerHTML = data.main.temp + "°C";
             location[0].innerHTML = data.name;
 
-            if (data.weather[0].icon === "01d" || data.weather[0].icon === "01n") {
+            if (data.weather[0].icon === "01d") {
                 setWicon(clear_icon);
-            } else if (data.weather[0].icon === "02d" || data.weather[0].icon === "02n") {
+            } else if (data.weather[0].icon === "01n") {
+                setWicon(clearn_icon);
+            } else if (data.weather[0].icon === "02d") {
                 setWicon(cloud_icon);
-            } else if (data.weather[0].icon === "03d" || data.weather[0].icon === "03n") {
+            } else if (data.weather[0].icon === "02n") {
+                setWicon(cloudn_icon);
+            } else if (data.weather[0].icon === "03d" || data.weather[0].icon === "04d") {
                 setWicon(drizzle_icon);
-            } else if (data.weather[0].icon === "04d" || data.weather[0].icon === "04n") {
-                setWicon(drizzle_icon);
+            } else if (data.weather[0].icon === "03n" || data.weather[0].icon === "04n") {
+                setWicon(drizzlen_icon);
             } else if (data.weather[0].icon === "09d" || data.weather[0].icon === "09n") {
                 setWicon(rain_icon);
             } else if (data.weather[0].icon === "10d" || data.weather[0].icon === "10n") {
                 setWicon(rain_icon);
+            } else if (data.weather[0].icon === "11d" || data.weather[0].icon === "11n") {
+                setWicon(thunderstorm_icon);
             } else if (data.weather[0].icon === "13d" || data.weather[0].icon === "13n") {
                 setWicon(snow_icon);
+            } else if (data.weather[0].icon === "50d" || data.weather[0].icon === "50n") {
+                setWicon(mist_icon);
             } else {
                 setWicon(clear_icon);
             }
