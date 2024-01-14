@@ -48,7 +48,7 @@ export const WeatherApp = () => {
             humidity[0].innerHTML = data.main.humidity + " %";
             wind[0].innerHTML = data.wind.speed + " km/hr";
             temperature[0].innerHTML = data.main.temp + "°C";
-            location[0].innerHTML = data.name;
+            location[0].innerHTML = data.name + ", " + data.sys.country;
 
             if (data.weather[0].icon === "01d") {
                 setWicon(clear_icon);
@@ -59,11 +59,13 @@ export const WeatherApp = () => {
             } else if (data.weather[0].icon === "02n") {
                 setWicon(cloudn_icon);
             } else if (data.weather[0].icon === "03d" || data.weather[0].icon === "04d") {
-                setWicon(drizzle_icon);
+                setWicon(cloud_icon);
             } else if (data.weather[0].icon === "03n" || data.weather[0].icon === "04n") {
+                setWicon(cloudn_icon);
+            } else if (data.weather[0].icon === "09d") {
+                setWicon(drizzle_icon);
+            } else if (data.weather[0].icon === "09n") {
                 setWicon(drizzlen_icon);
-            } else if (data.weather[0].icon === "09d" || data.weather[0].icon === "09n") {
-                setWicon(rain_icon);
             } else if (data.weather[0].icon === "10d" || data.weather[0].icon === "10n") {
                 setWicon(rain_icon);
             } else if (data.weather[0].icon === "11d" || data.weather[0].icon === "11n") {
